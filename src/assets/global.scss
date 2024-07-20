@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+* {
+  font-family: "Inter", sans-serif;
+}
+body{
+    margin: 0;
+}
+.homepage{
+    background: linear-gradient(108deg, rgba(51, 66, 94, 0.60) 2.46%, rgba(0, 0, 0, 0.60) 99.84%), #000;
+    box-sizing: border-box;
+    display: flex;
+    padding: 30px;
+    min-height: 100vh;
+    
+    .sidebar{
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .middle{
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .topbar{
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            gap: 40px;
+            // padding: 16px;
+            .for_you, .top_tracks{
+                color: #FFF;
+                font-family: Inter;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 32px; 
+                cursor: pointer;
+            }
+            .not_selected{
+                opacity: 0.5;
+            }
+        }
+        .search_bar{
+            display: flex;
+            padding: 8px 16px;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #FFF;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 28px; /* 155.556% */
+            border: none;
+            outline: none;
+        }
+        input{
+            border: none;
+            background: none;
+            color: #FFF;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 28px;
+            outline: none;
+            &:hover, &:active &:focus-visible{
+                outline: none;
+                border: none;
+            }
+        }
+        .list_item_container{
+            // display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            cursor: pointer;
+            max-height: calc(100vh - 250px);
+            overflow: scroll;
+            .list_item{
+                padding: 16px;
+                display: flex;
+                // justify-content: center;
+                align-items: center;
+                gap: 20px;
+                width: 350px;
+                img{
+                    border-radius: 50%;
+                }
+                .song_name{
+                    color: #FFF;
+                    font-family: Inter;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 24px;
+                }
+                .artist_name{
+                    color: #FFF;
+                    font-family: Inter;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 24px; /* 171.429% */
+                    opacity: 0.6;
+                }
+            }
+            .selected{
+                    border-radius: 8px;
+                    background: rgba(255, 255, 255, 0.08);
+                }
+        }
+    }
+    .media-player{
+        width: 45%;
+        justify-content: center;
+        // padding: 16px;
+        // align-items: center;
+        margin: 0 60px;
+        .rhap_container{
+            background: transparent;
+            box-shadow: none;
+            border: none;
+            padding: 12px 0;
+            width: 480px;
+        }
+        .rhap_time,.rhap_progress-indicator, .rhap_repeat-button{
+            display: none;
+        }
+        .rhap_progress-filled{
+            background-color: #FFF;
+        }
+        .rhap_progress-bar{
+            background-color: #868686;
+        }
+        .played_songs_details{
+            display: flex;
+            flex-direction: column;
+            .song_played{
+                color: #FFF;
+                font-size: 32px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 36px;
+                margin-bottom: 8px;
+            }
+            .artist_played{
+                color: #FFF;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 24px; /* 150% */
+                opacity: 0.6;
+            }
+        }
+        .cover_art_container{
+            margin: 32px 0 12px 0;
+            .cover_art{
+                    border-radius: 8px;
+                    // background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+                    width: 480px;
+                    height: 480px;
+            }
+        }
+    }
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+.show_list{
+    display: none;
+}
+@media (max-width: 1024px) {
+    .homepage {
+        padding: 20px;
+        display: block;
+        .sidebar{
+            width: 100%;
+            flex-direction: row;
+        }
+        .middle{
+        //    display: none;
+            width: 100%;
+        }
+        .media-player{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 50% 0;
+            .rhap_container{
+                width: 240px;
+            }
+            .cover_art_container{
+            margin: 32px 0 12px 0;
+            .cover_art{
+                    border-radius: 8px;
+                    // background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+                    width: 240px;
+                    height: 240px;
+            }
+        }
+        }
+    }
+    .show_list{
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        color: #fff;
+        border: 1px solid #868686;
+        padding: 8px;
+        border-radius: 8px;
+        width: fit-content;
+        float: right;
+        margin: 8px 0;
+    }
+    .display_none{
+        display: none !important;
+    }
+    .list_item_container{
+        max-height: 100vh;
+    }
+}
