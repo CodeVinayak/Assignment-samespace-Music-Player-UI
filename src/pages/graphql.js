@@ -16,21 +16,3 @@ export const GET_SONGS = gql`
     }
 }
 `;
-// export const SEARCH = gql`
-//   query songs($search: String){
-//     songs(search: $search){
-//       id
-//       artist
-//       url
-//       accent
-//       cover{
-//         duration
-//         title
-//         filename_disk
-//         id
-//       }
-//       name
-//       top_track
-//     }
-//   }
-// `
